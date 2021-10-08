@@ -4,5 +4,13 @@ devices() {
 	echo "$(/usr/bin/adb shell getprop ro.serialno)        fastboot"
 }
 
-eval $1
+reboot() {
+	if [[ "${1}" == "fastboot" ]]
+	then
+		echo "Rebooting into fastboot                            OKAY [  0.001s]"
+		echo "< waiting for any device >"
+		echo "Finished. Total time: 12.280s"
+	fi
+}
+eval $*
 # vim: set ft=bash
