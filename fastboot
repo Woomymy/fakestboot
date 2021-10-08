@@ -32,6 +32,8 @@ erase() {
 flash() {
 	if [[ "${1}" == "system" ]]
 	then
+		comment "We flash the system partition with image ${2}"
+		comment "This may take several minutes"
 		for SPARSE in {1..9}
 		do
 			echo "Sending sparse 'system' ${SPARSE}/9 ($(_random 110000 150000) KB)                 OKAY [  $(_random 10 9).0$(_random 10 95)s]"
