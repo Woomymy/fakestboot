@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 
+comment() {
+	echo -e "\e[38;5;246;03m# ${*}\e[39;00m"
+}
+
 _random() {
 	echo $(( (RANDOM % $2) + $1 ))
 }
 
 devices() {
-	echo "$(/usr/bin/adb shell getprop ro.serialno)        fastboot"
+	comment "Here we get a list of devices in fastboot mode connected to the computer"
+	comment "Make sure your device is listed here"
+	echo "53657269616C206E        fastboot"
 }
 
 reboot() {
