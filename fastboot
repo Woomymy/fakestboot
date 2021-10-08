@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+_random() {
+	echo $(( (RANDOM % $2) + $1 ))
+}
+
 devices() {
 	echo "$(/usr/bin/adb shell getprop ro.serialno)        fastboot"
 }
@@ -12,5 +16,26 @@ reboot() {
 		echo "Finished. Total time: 12.280s"
 	fi
 }
+
+erase() {
+	echo "Erasing '${1}'    	                            OKAY [  0.123s]"
+	echo "Finished. Total time: 0.176s"
+}
+
+flash() {
+	if [[ "${1}" == "system" ]]
+	then
+		for SPARSE in {1..9}
+		do
+			echo "Sending sparse 'system' ${SPARSE}/9 ($(_random 110000 150000) KB)                 OKAY [  $(_random 10 9).0$(_random 10 95)s]"
+			sleep 1
+			echo "Writing 'system'                                        OKAY [  $(_random 0 2).0$(_random 10 75)s]"
+			sleep 1
+		done
+		echo "Finished. Total time: 120.58s"
+	fi
+}
+
 eval $*
+echo ""
 # vim: set ft=bash
