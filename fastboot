@@ -17,6 +17,7 @@ devices() {
 reboot() {
 	if [[ "${1}" == "fastboot" ]]
 	then
+		comment "Using 'fastboot reboot fastboot' reboots device in FastbootD, which allows us to flash partitions contained in 'super' part"
 		echo "Rebooting into fastboot                            OKAY [  0.001s]"
 		echo "< waiting for any device >"
 		echo "Finished. Total time: 12.280s"
