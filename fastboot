@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+devices() {
+	echo "$(/usr/bin/adb shell getprop ro.serialno)        fastboot"
+}
+
+eval $1
+# vim: set ft=bash
