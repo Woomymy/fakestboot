@@ -21,6 +21,11 @@ reboot() {
 		echo "Rebooting into fastboot                            OKAY [  0.001s]"
 		echo "< waiting for any device >"
 		echo "Finished. Total time: 12.280s"
+	elif [[ "${1}" == "bootloader" ]]
+	then
+		comment "We reboot in \"classic\" (bootloader) fastboot mode for wiping userdata"
+		echo "Rebooting into bootloader                            OKAY [  1.001s]"
+		echo "Finished. Total time: 1.005s"
 	fi
 }
 
