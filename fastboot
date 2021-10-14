@@ -30,6 +30,10 @@ reboot() {
 }
 
 erase() {
+	if [[ "${1}" == "userdata" ]]
+	then
+		comment "This command will wipe ALL YOUR DATA AND APPS!"
+	fi
 	echo "Erasing '${1}'    	                            OKAY [  0.123s]"
 	echo "Finished. Total time: 0.176s"
 }
